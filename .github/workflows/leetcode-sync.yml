@@ -30,9 +30,9 @@ jobs:
         python sync_leetcode.py
 
     - name: Commit & Push
-      run: |
-        git config --global user.name 'github-actions'
-        git config --global user.email 'github-actions@github.com'
-        git add .
-        git commit -m "🔁 Auto-sync LeetCode submissions"
-        git push
+  run: |
+    git config --global user.name 'github-actions'
+    git config --global user.email 'github-actions@github.com'
+    git add .
+    git diff --cached --quiet || git commit -m "🔁 Auto-sync LeetCode submissions"
+    git push
